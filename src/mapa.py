@@ -1,4 +1,11 @@
-# mapa.py
+# Mapa do mundo da Barbie - 42x42
+# mapa.py --> guarda dados do problema da barbie
+
+# G = Grama           --> custo 5
+# A = Asfalto         --> custo 1
+# T = Terra           --> custo 3
+# P = Paralelepípedo  --> custo 10
+# E = Edifício        --> BLOQUEADO
 
 MAPA_TEXTO = [
     "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
@@ -44,3 +51,28 @@ MAPA_TEXTO = [
     "GGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGG",
     "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
 ]
+
+# verifica tamanho do mapa
+LINHAS = len(MAPA_TEXTO)
+COLUNAS = len(MAPA_TEXTO[0])
+
+CUSTOS = {
+    "A": 1,
+    "T": 3,
+    "G": 5,
+    "P": 10,
+}
+
+BLOQUEADO = "E"
+
+# A Casa [23,19] do enunciado corresponde a (22,18)
+CASA_DA_BARBIE = (22, 18)
+
+POSICOES_AMIGOS = {
+    "Suzy": (4, 12),
+    "Brandon": (5, 34),
+    "Ken": (9, 8),
+    "Polly": (23, 37),
+    "Mary": (35, 14),
+    "Carly": (36, 36),
+}
