@@ -16,7 +16,7 @@ Foram utilizados os seguintes parâmetros:
 - Mutação: swap;
 - Taxa de mutação: 3%;
 - Elitismo: 2 indivíduos;
-- Semente aleatória: 12345.
+- Semente aleatória: 2024105231940012.
 
 No Experimento A foi utilizada uma população de 50 indivíduos e 300 gerações.
 
