@@ -6,15 +6,15 @@ from gerar_amigos import gerar_amigos
 from matriz_custos import calcular_matriz_custos
 from algoritmo_genetico import algoritmo_genetico
 
+SEED = 2024105231940012
 
-SEED = 12345
+os.makedirs("resultados", exist_ok=True)
+
+
+# EXPERIMENTO A
 N = 8
 
-
-amigos = gerar_amigos(
-    N,
-    SEED
-)
+amigos = gerar_amigos(N, SEED)
 
 nomes, matriz = calcular_matriz_custos(
     CASA_DA_BARBIE,
@@ -23,8 +23,7 @@ nomes, matriz = calcular_matriz_custos(
 
 nomes_amigos = list(amigos.keys())
 
-
-melhor_cromossomo, melhor_custo, historico = algoritmo_genetico(
+_, _, historico_A = algoritmo_genetico(
     nomes_amigos,
     nomes,
     matriz,
@@ -35,21 +34,16 @@ melhor_cromossomo, melhor_custo, historico = algoritmo_genetico(
     tamanho_elite=2
 )
 
-
-os.makedirs("resultados", exist_ok=True)
-
-
 plt.figure(figsize=(10, 5))
 
 plt.plot(
-    range(1, len(historico) + 1),
-    historico
+    range(1, len(historico_A) + 1),
+    historico_A
 )
 
 plt.xlabel("Geração")
 plt.ylabel("Melhor custo")
 plt.title("Convergência do Algoritmo Genético - Experimento A")
-
 plt.grid()
 
 plt.savefig(
@@ -58,4 +52,50 @@ plt.savefig(
     bbox_inches="tight"
 )
 
-plt.show()
+plt.close()
+
+
+# EXPERIMENTO B
+N = 15
+
+amigos = gerar_amigos(N, SEED)
+
+nomes, matriz = calcular_matriz_custos(
+    CASA_DA_BARBIE,
+    amigos
+)
+
+nomes_amigos = list(amigos.keys())
+
+_, _, historico_B = algoritmo_genetico(
+    nomes_amigos,
+    nomes,
+    matriz,
+    tamanho_populacao=100,
+    geracoes=500,
+    taxa_crossover=0.8,
+    taxa_mutacao=0.03,
+    tamanho_elite=2
+)
+
+plt.figure(figsize=(10, 5))
+
+plt.plot(
+    range(1, len(historico_B) + 1),
+    historico_B
+)
+
+plt.xlabel("Geração")
+plt.ylabel("Melhor custo")
+plt.title("Convergência do Algoritmo Genético - Experimento B")
+plt.grid()
+
+plt.savefig(
+    "resultados/experimento_B.png",
+    dpi=300,
+    bbox_inches="tight"
+)
+
+plt.close()
+
+print("Gráficos gerados com sucesso!")
