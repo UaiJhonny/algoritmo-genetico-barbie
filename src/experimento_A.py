@@ -8,7 +8,7 @@ from algoritmo_genetico import algoritmo_genetico
 from forca_bruta import forca_bruta
 
 
-SEED = 12345
+SEED = 2024105231940012
 N = 8
 
 

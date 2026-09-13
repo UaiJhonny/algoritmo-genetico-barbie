@@ -6,7 +6,7 @@ from gerar_amigos import gerar_amigos
 from matriz_custos import calcular_matriz_custos
 from algoritmo_genetico import algoritmo_genetico
 
-SEED = 12345
+SEED = 2024105231940012
 N = 15
 
 print("=== EXPERIMENTO B ===")
